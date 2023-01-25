@@ -24,8 +24,7 @@ function ChessBoard() {
     return (
         <Board>
             {range(8).map(y => {
-                return range(8)
-                    .map(x => <Square x={x} y={y}/>);
+                return range(8).map(x => <Square x={x} y={y}/>);
             }).flat()}
         </Board>
     );
