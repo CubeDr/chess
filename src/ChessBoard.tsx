@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import King from './pieces/King';
-import Queen from './pieces/Queen';
-import Rook from './pieces/Rook';
-import Bishop from './pieces/Bishop';
-import Knight from './pieces/Knight';
-import Pawn from './pieces/Pawn';
+import king from './pieces/King';
+import queen from './pieces/Queen';
+import rook from './pieces/Rook';
+import bishop from './pieces/Bishop';
+import knight from './pieces/Knight';
+import pawn from './pieces/Pawn';
 
 function range(size: number) {
     return Array.from(new Array(size).keys());
@@ -30,14 +30,14 @@ const Square = styled.div<{ x: number, y: number }>`
 
 function ChessBoard() {
     const pieces = [
-        [new Rook(), new Knight(), new Bishop(), new Queen(), new King(), new Bishop(), new Knight(), new Rook()],
-        [new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn()],
+        [rook, knight, bishop, queen, king, bishop, knight, rook],
+        [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
-        [new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn(), new Pawn()],
-        [new Rook(), new Knight(), new Bishop(), new King(), new Queen(), new Bishop(), new Knight(), new Rook()],
+        [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
+        [rook, knight, bishop, king, queen, bishop, knight, rook],
     ];
 
     return (

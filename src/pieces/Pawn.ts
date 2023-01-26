@@ -6,4 +6,5 @@ class Pawn extends Piece {
     }
 }
 
-export default Pawn;
+const pawn = new Pawn();
+export default pawn;

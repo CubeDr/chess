@@ -6,4 +6,5 @@ class Bishop extends Piece {
     }
 }
 
-export default Bishop;
+const bishop = new Bishop();
+export default bishop;

@@ -6,4 +6,5 @@ class Rook extends Piece {
     }
 }
 
-export default Rook;
+const rook = new Rook();
+export default rook;

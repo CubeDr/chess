@@ -6,4 +6,5 @@ class Knight extends Piece {
     }
 }
 
-export default Knight;
+const knight = new Knight();
+export default knight;

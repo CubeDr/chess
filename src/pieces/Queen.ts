@@ -6,4 +6,5 @@ class Queen extends Piece {
     }
 }
 
-export default Queen;
+const queen = new Queen();
+export default queen;

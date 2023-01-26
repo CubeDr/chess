@@ -6,4 +6,5 @@ class King extends Piece {
     }
 }
 
-export default King;
+const king = new King();
+export default king;
