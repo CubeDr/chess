@@ -1,10 +1,7 @@
 import Piece from './Piece';
 
 class Queen extends Piece {
-    constructor() {
-        super('♛');
-    }
 }
 
-const queen = new Queen();
-export default queen;
+export const blackQueen = new Queen('♛');
+export const whiteQueen = new Queen('♕');

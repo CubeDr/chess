@@ -1,10 +1,7 @@
 import Piece from './Piece';
 
 class Pawn extends Piece {
-    constructor() {
-        super('♟');
-    }
 }
 
-const pawn = new Pawn();
-export default pawn;
+export const blackPawn = new Pawn('♟');
+export const whitePawn = new Pawn('♙');

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import king from './pieces/King';
-import queen from './pieces/Queen';
-import rook from './pieces/Rook';
-import bishop from './pieces/Bishop';
-import knight from './pieces/Knight';
-import pawn from './pieces/Pawn';
+import {blackKing, whiteKing} from './pieces/King';
+import {blackQueen, whiteQueen} from './pieces/Queen';
+import {blackRook, whiteRook} from './pieces/Rook';
+import {blackBishop, whiteBishop} from './pieces/Bishop';
+import {blackKnight, whiteKnight} from './pieces/Knight';
+import {blackPawn, whitePawn} from './pieces/Pawn';
 
 function range(size: number) {
     return Array.from(new Array(size).keys());
@@ -30,14 +30,14 @@ const Square = styled.div<{ x: number, y: number }>`
 
 function ChessBoard() {
     const pieces = [
-        [rook, knight, bishop, queen, king, bishop, knight, rook],
-        [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
+        [whiteRook, whiteKnight, whiteBishop, whiteQueen, whiteKing, whiteBishop, whiteKnight, whiteRook],
+        [whitePawn, whitePawn, whitePawn, whitePawn, whitePawn, whitePawn, whitePawn, whitePawn],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null],
-        [pawn, pawn, pawn, pawn, pawn, pawn, pawn, pawn],
-        [rook, knight, bishop, king, queen, bishop, knight, rook],
+        [blackPawn, blackPawn, blackPawn, blackPawn, blackPawn, blackPawn, blackPawn, blackPawn],
+        [blackRook, blackKnight, blackBishop, blackKing, blackQueen, blackBishop, blackKnight, blackRook],
     ];
 
     return (
