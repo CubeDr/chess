@@ -55,7 +55,12 @@ function ChessBoard() {
 
     function onSquareClick(x: number, y: number) {
         if (pieces[y][x] == null) return;
-        setSelectedPoint({x, y});
+
+        if (x === selectedPoint?.x && y === selectedPoint?.y) {
+            setSelectedPoint(undefined);
+        } else {
+            setSelectedPoint({x, y});
+        }
     }
 
     return (
