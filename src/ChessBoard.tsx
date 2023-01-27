@@ -17,7 +17,7 @@ const Board = styled.div`
   height: 800px;
 `;
 
-const Square = styled.div<{ x: number, y: number }>`
+const Square = styled.div<{ x: number, y: number, isSelected: boolean }>`
   position: absolute;
   left: ${props => props.x * 100}px;
   top: ${props => props.y * 100}px;
@@ -28,8 +28,10 @@ const Square = styled.div<{ x: number, y: number }>`
   text-align: center;
   cursor: pointer;
 
+  ${props => props.isSelected ? 'box-shadow: 0 0 0 5px lightgreen inset;' : ''}
+
   &:hover {
-    box-shadow: 0 0 0 5px beige inset;
+    ${props => !props.isSelected ? 'box-shadow: 0 0 0 5px beige inset;' : ''}
   }
 `;
 
@@ -51,7 +53,9 @@ function ChessBoard() {
         <Board>
             {range(8).map(y => {
                 return range(8).map(x => <Square
-                    x={x} y={y} onClick={() => setSelectedPoint({x, y})}>
+                    x={x} y={y}
+                    isSelected={x === selectedPoint?.x && y === selectedPoint?.y}
+                    onClick={() => setSelectedPoint({x, y})}>
                     {pieces[y][x]?.piece}
                 </Square>);
             }).flat()}
