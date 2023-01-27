@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from "styled-components";
 import {blackKing, whiteKing} from './pieces/King';
 import {blackQueen, whiteQueen} from './pieces/Queen';
@@ -26,6 +25,11 @@ const Square = styled.div<{ x: number, y: number }>`
   background-color: ${props => (props.x + props.y) % 2 === 0 ? '#fccc74' : '#8a785d'};
   font-size: 75px;
   text-align: center;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: 0 0 0 5px beige inset;
+  }
 `;
 
 function ChessBoard() {
