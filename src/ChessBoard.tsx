@@ -5,6 +5,7 @@ import {blackRook, whiteRook} from './pieces/Rook';
 import {blackBishop, whiteBishop} from './pieces/Bishop';
 import {blackKnight, whiteKnight} from './pieces/Knight';
 import {blackPawn, whitePawn} from './pieces/Pawn';
+import {useState} from "react";
 
 function range(size: number) {
     return Array.from(new Array(size).keys());
@@ -26,7 +27,7 @@ const Square = styled.div<{ x: number, y: number }>`
   font-size: 75px;
   text-align: center;
   cursor: pointer;
-  
+
   &:hover {
     box-shadow: 0 0 0 5px beige inset;
   }
@@ -44,10 +45,15 @@ function ChessBoard() {
         [blackRook, blackKnight, blackBishop, blackKing, blackQueen, blackBishop, blackKnight, blackRook],
     ];
 
+    const [selectedPoint, setSelectedPoint] = useState<{ x: number, y: number }>();
+
     return (
         <Board>
             {range(8).map(y => {
-                return range(8).map(x => <Square x={x} y={y}>{pieces[y][x]?.piece}</Square>);
+                return range(8).map(x => <Square
+                    x={x} y={y} onClick={() => setSelectedPoint({x, y})}>
+                    {pieces[y][x]?.piece}
+                </Square>);
             }).flat()}
         </Board>
     );
