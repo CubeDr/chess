@@ -17,7 +17,12 @@ const Board = styled.div`
   height: 800px;
 `;
 
-const Square = styled.div<{ x: number, y: number, isSelected: boolean }>`
+const Square = styled.div<{
+    x: number,
+    y: number,
+    isSelected: boolean,
+    isSelectable: boolean,
+}>`
   position: absolute;
   left: ${props => props.x * 100}px;
   top: ${props => props.y * 100}px;
@@ -29,9 +34,8 @@ const Square = styled.div<{ x: number, y: number, isSelected: boolean }>`
   cursor: pointer;
 
   ${props => props.isSelected ? 'box-shadow: 0 0 0 5px lightgreen inset;' : ''}
-
   &:hover {
-    ${props => !props.isSelected ? 'box-shadow: 0 0 0 5px beige inset;' : ''}
+    ${props => props.isSelectable && !props.isSelected ? 'box-shadow: 0 0 0 5px beige inset;' : ''}
   }
 `;
 
@@ -49,13 +53,19 @@ function ChessBoard() {
 
     const [selectedPoint, setSelectedPoint] = useState<{ x: number, y: number }>();
 
+    function onSquareClick(x: number, y: number) {
+        if (pieces[y][x] == null) return;
+        setSelectedPoint({x, y});
+    }
+
     return (
         <Board>
             {range(8).map(y => {
                 return range(8).map(x => <Square
                     x={x} y={y}
                     isSelected={x === selectedPoint?.x && y === selectedPoint?.y}
-                    onClick={() => setSelectedPoint({x, y})}>
+                    isSelectable={pieces[y][x] != null}
+                    onClick={() => onSquareClick(x, y)}>
                     {pieces[y][x]?.piece}
                 </Square>);
             }).flat()}
